@@ -1,12 +1,30 @@
-"""
-main.py
-
-This script provides functionality to compute hashes of input text using various hashing algorithms supported by the hashlib module.
-The user is prompted to enter text and choose a hashing algorithm, and the resulting hash value is displayed.
-"""
-
 import hashlib
+from colorama import Fore, Style, init
 
+def print_banner(title):
+    # Initialize Colorama
+    init(autoreset=True)
+
+    banner = f"""
+    {Fore.BLUE}{Style.BRIGHT}
+    
+        ___                             ___          ,----,    ,---,                             ,---,     
+      ,--.'|_                         ,--.'|_      .'   .' \ ,--.' |                           ,--.' |     
+      |  | :,'                        |  | :,'   ,----,'    ||  |  :                           |  |  :     
+      :  : ' :            ,--,  ,--,  :  : ' :   |    :  .  ;:  :  :                  .--.--.  :  :  :     
+    .;__,'  /     ,---.   |'. \/ .`|.;__,'  /    ;    |.'  / :  |  |,--.  ,--.--.    /  /    ' :  |  |,--. 
+    |  |   |     /     \  '  \/  / ;|  |   |     `----'/  ;  |  :  '   | /       \  |  :  /`./ |  :  '   | 
+    :__,'| :    /    /  |  \  \.' / :__,'| :       /  ;  /   |  |   /' :.--.  .-. | |  :  ;_   |  |   /' : 
+      '  : |__ .    ' / |   \  ;  ;   '  : |__    ;  /  /-,  '  :  | | | \\__\/: . .  \\  \\    `.'  :  | | | 
+      |  | '.'|'   ;   /|  / \\  \\  \\  |  | '.'|  /  /  /.`|  |  |  ' | : ,' .--.; |   `----.   \\  |  ' | : 
+      ;  :    ;'   |  / |./__;   ;  \\ ;  :    ;./__;      :  |  :  :_:,'/  /  ,.  |  /  /`--'  /  :  :_:,' 
+      |  ,   / |   :    ||   :/\\  \\ ; |  ,   / |   :    .'   |  | ,'   ;  :   .'   '--'.     /|  | ,'     
+       ---`-'   \\   \\  / `---'  `--`   ---`-'  ;   | .'      `--''     |  ,     .-./  `--'---' `--''       
+                 `----'                        `---'                    `--`---'                           
+    
+    {Style.RESET_ALL}
+    """
+    print(banner)
 
 def compute_hash(data, hash_type="sha256"):
     """
@@ -31,11 +49,8 @@ def compute_hash(data, hash_type="sha256"):
 
 
 def main():
-    """
-    Prompt the user to input a text and choose a hashing algorithm. Compute and display the hash of the input text based on the chosen algorithm.
+    print_banner("text2hash")
 
-    :return: None
-    """
     user_input = input("Enter the text you want to hash: ")
 
     # Display available hashing algorithms
